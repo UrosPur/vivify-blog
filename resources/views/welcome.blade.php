@@ -12,7 +12,7 @@
 
         <!-- Styles -->
         <style>
-            
+
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
+                    <a href="{{ url('/posts') }}">Posts</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>

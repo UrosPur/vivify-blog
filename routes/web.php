@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/posts', 'PostsController@index');
+
+Route::get('/posts/{id}', 'PostsController@show')->name('single-post');
+//Route::get('/posts/create', 'PostsController@create')->name('single-post');
+
+
+
