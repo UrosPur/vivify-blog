@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Session;
 
 class RegisterController extends Controller
 {
@@ -11,6 +12,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('age',['only' => 'store']);
 
     }
 
@@ -44,6 +46,8 @@ class RegisterController extends Controller
         $user->save();
 
         auth()->login($user);
+
+        session()->flash('message','Thank you for registering');
 
         return redirect()->route('posts.index');
 

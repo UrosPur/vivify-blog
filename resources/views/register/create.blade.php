@@ -38,6 +38,14 @@
 
         </div>
 
+        <div class="form-group">
+
+            <label for="age">Add users age</label>
+            <input id="age" type="number" name="age" class="form-control">
+            @include('partial.error-message',['fieldTitle' => 'age'])
+
+        </div>
+
 
 
 
