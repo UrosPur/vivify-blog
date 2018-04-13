@@ -15,6 +15,11 @@
             @if($post->user)
             <p class="blog-post-meta"> by <i><a href="{{ route('users.show',[ 'id' => $post->user_id]) }}" >{{ $post->user->name}}</a></i> </p>
             @endif
+            <small>
+                @foreach($post->tags as $tag)
+                    <a href="{{ route('tags.index', [ 'tag' => $tag]) }}">{{ $tag->name }}</a> /
+                    @endforeach
+            </small>
             <p class="blog-post-meta">{{ $post->createdAt }}</p>
 
             <p>{{ $post->body }}</p>

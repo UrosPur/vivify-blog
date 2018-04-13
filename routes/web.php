@@ -28,6 +28,7 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::get('/login', 'LoginController@create')->name('login');
 Route::post('/login', 'LoginController@store')->name('login.store');
 Route::get('/users/{id}', 'UsersController@show')->name('users.show');
+Route::get('/posts/tag/{tag}', 'TagsController@index')->name('tags.index');
 
 
 
