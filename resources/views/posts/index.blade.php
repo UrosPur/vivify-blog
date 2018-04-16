@@ -30,7 +30,9 @@
         </div><!-- /.blog-post -->
         @endforeach
 
+    {{ $posts->links() }}
     </div><!-- /.blog-main -->
+
 
 @endsection
 
