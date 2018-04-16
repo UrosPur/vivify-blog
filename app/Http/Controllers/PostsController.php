@@ -22,7 +22,16 @@ class PostsController extends Controller
     public function index()
     {
 
-        $posts = Post::paginate(10);
+        $posts = Post::with('user')->paginate(10);
+
+
+
+//        foreach ($posts as $post){
+//
+//        dd($post->user->email);exit;
+//
+//        }
+
 
 //        dd(auth()->user());
 
