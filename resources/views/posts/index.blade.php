@@ -30,7 +30,16 @@
         </div><!-- /.blog-post -->
         @endforeach
 
-    {{ $posts->links() }}
+{{--    {{ $posts->links() }}--}}
+
+            <nav class="blog-pagination">
+                <a class="btn btn-outline-{{ $posts->currentPage() == 1? 'secondary disabled' : 'primary' }}"
+                   href="{{ $posts->previousPageUrl() }}">Prev</a>
+
+                <a class="btn btn-outline-{{ $posts->hasMorePages() ? 'primary' : 'secondary disabled' }}"
+{{--                <a class="btn btn-outline-{{ $posts->nextPageUrl() ? 'primary' : 'secondary disabled' }}"--}}
+                   href="{{ $posts->nextPageUrl() }}">Next</a>
+            </nav>
     </div><!-- /.blog-main -->
 
 
