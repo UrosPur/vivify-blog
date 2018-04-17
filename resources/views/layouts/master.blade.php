@@ -45,7 +45,8 @@
 
         @yield('content')
 
-      @include('partial.sidebar')
+      @include('partial.sidebar',compact('view'))
+
 
     </div><!-- /.row -->
 

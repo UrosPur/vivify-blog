@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Tag;
 
 
 class PostsController extends Controller
@@ -22,7 +23,7 @@ class PostsController extends Controller
     public function index()
     {
 
-        $posts = Post::with('user')->paginate(10);
+        $posts = Post::with('user')->latest()->paginate(10);
 
 
 
@@ -51,7 +52,9 @@ class PostsController extends Controller
     public function create()
     {
 
-        return view('posts.create');
+        $tags = Tag::all();
+
+        return view('posts.create', compact('tags'));
 
     }
 
@@ -60,7 +63,8 @@ class PostsController extends Controller
 
         $this->validate(request(),[
            'title' => 'required',
-           'body' => 'required|min:15'
+           'body' => 'required|min:15',
+           'tags' => 'required|array'
 
         ]);
 
@@ -72,6 +76,9 @@ class PostsController extends Controller
 
             $post->save();
 
+            $post->tags()->attach(request('tags'));
+
+//            \Log::info($post->tags()->get());
 
 //        Post::create(request()->all());
 

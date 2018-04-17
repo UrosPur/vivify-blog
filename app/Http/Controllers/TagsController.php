@@ -12,9 +12,10 @@ class TagsController extends Controller
 
 
 
-        $posts = $tag->posts;
+            $posts = $tag->posts()->with('user')->latest()->paginate(10);
 
-        return view('posts.index',compact('posts'));
+            return view('posts.index',compact('posts'));
 
     }
+
 }
